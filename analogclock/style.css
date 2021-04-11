@@ -1,0 +1,429 @@
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+:root {
+    --bg-color: #353535;
+    --number-color: #1084f1;
+    --number-shadow-color: rgba(63, 252, 6, 0.678);
+    --center-color: rgb(252, 6, 231);
+    --center-shadow-color: rgba(6, 182, 252, 0.555);
+    --hour-mark-color: rgb(250, 50,140);
+    --hour-hand-color: rgb(0, 180, 150);
+    --hour-hand-shadow-color: rgba(53, 175, 90, 0.801);
+    --minute-mark-color: rgb(251, 255, 200);
+    --minute-hand-color: rgb(144, 85, 240);
+    --minute-hand-shadow-color: rgba(248, 21, 229, 0.774);
+    --second-hand-color: rgb(30, 255, 0);
+    --second-hand-shadow-color: rgba(0, 89, 255, 0.753);
+}
+body{
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container {
+    width: 350px;/*460*/
+    height: 350px;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid yellow; */
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 5px 5px 12px rgba(0,0,0,0.3), -5px -5px 12px rgba(255,255,255,0.05);
+}
+.scnd-container {
+    width: 335px;/*445*/
+    height: 335px;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 5px 5px 12px rgba(0,0,0,0.3), -5px -5px 12px rgba(255,255,255,0.05);
+}
+.trd-container {
+    width: 290px;/*400*/
+    height: 290px;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid magenta; */
+    position: relative;
+    border-radius: 50%;
+    box-shadow: inset 3px 3px 7px rgba(0,0,0,0.3), inset -3px -3px 7px rgba(255,255,255,0.05);
+}
+.container {/*the main container*/
+    display: block;
+    border-radius: 50%;
+    width: 240px;/*350*/
+    height: 240px;
+    background-color: var(--bg-color);
+    /* border: 1px solid red; */
+    position: relative;
+}
+.bars {/*the minute and second indicator*/
+    display: block;
+    background-color: var(--minute-mark-color);
+    width: 240px;/*350*/
+    height: 1px;
+    transform-origin: center;
+    position: absolute;
+    top: 119px;/*350/2-1*//*174*/
+    left: -1px;/*1/2*/
+}
+#bar5, #bar10, #bar15, #bar20, #bar25, #bar30 {
+    height: 3px;
+    z-index: 2;
+    top: 117px;/*350/2-3*//*172*/
+    left: -1.5px;/*3/2*/
+    background-color: var(--hour-mark-color);
+}
+#bar1{
+    transform: rotateZ(96deg);
+}
+#bar2{
+    transform: rotateZ(102deg);
+}
+#bar3{
+    transform: rotateZ(108deg);
+}
+#bar4{
+    transform: rotateZ(114deg);
+}
+#bar5{
+    transform: rotateZ(120deg);
+}
+#bar6{
+    transform: rotateZ(126deg);
+}
+#bar7{
+    transform: rotateZ(132deg);
+}
+#bar8{
+    transform: rotateZ(138deg);
+}
+#bar9{
+    transform: rotateZ(144deg);
+}
+#bar10{
+    transform: rotateZ(150deg);
+}
+#bar11{
+    transform: rotateZ(156deg);
+}
+#bar12{
+    transform: rotateZ(162deg);
+}
+#bar13{
+    transform: rotateZ(168deg);
+}
+#bar14{
+    transform: rotateZ(174deg);
+}
+#bar15{
+    transform: rotateZ(180deg);
+}
+#bar16{
+    transform: rotateZ(186deg);
+}
+#bar17{
+    transform: rotateZ(192deg);
+}
+#bar18{
+    transform: rotateZ(198deg);
+}
+#bar19{
+    transform: rotateZ(204deg);
+}
+#bar20{
+    transform: rotateZ(210deg);
+}
+#bar21{
+    transform: rotateZ(216deg);
+}
+#bar22{
+    transform: rotateZ(222deg);
+}
+#bar23{
+    transform: rotateZ(228deg);
+}
+#bar24{
+    transform: rotateZ(234deg);
+}
+#bar25{
+    transform: rotateZ(240deg);
+}
+#bar26{
+    transform: rotateZ(246deg);
+}
+#bar27{
+    transform: rotateZ(252deg);
+}
+#bar28{
+    transform: rotateZ(258deg);
+}
+#bar29{
+    transform: rotateZ(264deg);
+}
+#bar30{
+    transform: rotateZ(270deg);
+}
+.mask {/*mask to hide inner part of the bars(indicator)*/
+    height: 230px;/*340*/
+    width: 230px;
+    background-color: var(--bg-color);
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    /* border: 1px solid green; */
+    top: 5px;
+    left: 4.5px;
+}
+.mask1 {/*mask to hide inner part of the 5min indicator bar*/
+    height: 222px;/*332*/
+    width: 222px;
+    background-color: var(--bg-color);
+    position: absolute;
+    z-index: 3;
+    border-radius: 50%;
+    /* border: 1px solid pink; */
+    top: 7.5px;
+    left: 7.5px;
+}
+.mask1 .hours {/*the hour number container*/
+    position: relative;
+    height: 222px;/*332*/
+    width: 222px;
+    background-color: var(--bg-color);
+    z-index: 4;
+    border-radius: 50%;
+    /* border: 1px solid rgb(248, 6, 6); */
+}
+.mask1 .hours .hour {/*hour number */
+    position: absolute;
+    z-index: 4;
+    width: 222px;/*332*/
+    height: 25px;/*30*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgba(179, 255, 0, 0.137); */
+    top: 99.5px;/*332/2-30/2*//*151*/
+    left: 1.5px;
+}
+.mask1 .hours .hour .hour-num {
+    height: 100%;
+    width: 25px;/*30*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;/*25*/
+    color: var(--number-color);
+    text-shadow: 0 0 10px var(--number-shadow-color);
+}
+.mask1 .h1-7 {
+    transform: rotateZ(120deg);
+}
+.mask1 .h1-7 .hour-num {
+    transform: rotateZ(-120deg);
+}
+.mask1 .h2-8 {
+    transform: rotateZ(150deg);
+}
+.mask1 .h2-8 .hour-num {
+    transform: rotateZ(-150deg);
+}
+.mask1 .h3-9 {
+    transform: rotateZ(180deg);
+}
+.mask1 .h3-9 .hour-num {
+    transform: rotateZ(-180deg);
+}
+.mask1 .h4-10 {
+    transform: rotateZ(210deg);
+}
+.mask1 .h4-10 .hour-num {
+    transform: rotateZ(-210deg);
+}
+.mask1 .h5-11 {
+    transform: rotateZ(240deg);
+}
+.mask1 .h5-11 .hour-num {
+    transform: rotateZ(-240deg);
+}
+.mask1 .h6-12 {
+    transform: rotateZ(270deg);
+}
+.mask1 .h6-12 .hour-num {
+    transform: rotateZ(-270deg);
+}
+
+.center {
+    width: 20px;/*30*/
+    height: 20px;
+    z-index: 10;
+    position: absolute;
+    background-color: var(--center-color);
+    top: 108.3px;/*158*/
+    left: 108.3px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px var(--center-shadow-color), -2px -2px 10px var(--center-shadow-color);
+}
+.second {
+    width: 161.14px;/*235*/
+    height: 5px;
+    z-index: 9;
+    position: absolute;
+    background-color: var(--second-hand-color);
+    top: 116.5px;/*171*/
+    left: 12.9px;/*13*/
+    border-radius: 5px;
+    transform-origin: 106.4px 2.5px;/*161*/
+    transform: rotateZ(90deg);
+    box-shadow: 0 0 4px var(--second-hand-shadow-color);
+}
+.minute {
+    width: 99.4285px;/*145*/
+    height: 7.5px;
+    z-index: 8;
+    position: absolute;
+    background-color: var(--minute-hand-color);
+    top: 116px;/*169.999*/
+    left: 26.74px;/*39*/
+    border-radius: 5px;
+    transform-origin: 92.2285px 3.75px;/*134.5*/
+    transform: rotateZ(0deg);
+    box-shadow: 0 0 7px var(--minute-hand-shadow-color);
+}
+.hourd {
+    width: 75.4285px;/*110*/
+    height: 12px;
+    z-index: 7;
+    position: absolute;
+    background-color: var(--hour-hand-color);
+    top: 113.5px;/*168*/
+    left: 48px;/*70*/
+    border-radius: 5px;
+    transform-origin: 70.7914px 6px;/*103.5*/
+    transform: rotateZ(0deg);
+    box-shadow: 0 0 10px var(--hour-hand-shadow-color);
+}
+
+
+/*big screen*/
+@media screen and (min-width: 768px){
+    .main-container{
+        width: 460px;
+        height: 460px;
+    }
+    .scnd-container {
+        height: 445px;
+        width: 445px;
+    }
+    .trd-container{
+        width: 400px;
+        height: 400px;
+    }
+    .container {
+        width: 350px;
+        height: 350px;
+    }
+    .bars {
+        width: 350px;
+        top: 174px;
+    }
+    #bar5, #bar10, #bar15, #bar20, #bar25, #bar30 {
+        top: 172px;
+    }
+    .mask {
+        height: 340px;
+        width: 340px;
+    }
+    .mask1{
+        height: 332px;
+        width: 332px;
+    }
+    .mask1 .hours {
+        height: 332px;
+        width: 332px;
+    }
+    .mask1 .hours .hour {
+        width: 332px;
+        height: 30px;
+        top: 151px;
+    }
+    .mask1 .hours .hour .hour-num {
+        width: 30px;
+        font-size: 25px;
+    }
+    .center {
+        width: 30px;
+        height: 30px;
+        top: 158px; 
+        left: 158px;
+    }
+    .second {
+        width: 235px;
+        top: 171px;
+        left: 13px;
+        transform-origin: 161px 2.5px;
+    }
+    .minute {
+        width: 145px;
+        top: 169.999px;
+        left: 39px;
+        transform-origin: 134.5px 3.75px;
+    }
+    .hourd {
+        width: 110px;
+        top: 168px;
+        left: 70px;
+        transform-origin: 103.5px 6px;
+    }
+}
+
+/*for css var() unsupported browser*/
+@supports not (var(--bg-color)) {
+  body, .main-container, .scnd-container, .trd-container, .container, .mask, .mask1, .mask1 .hours {
+    background-color: #353535;
+  }
+  .mask1 .hours .hour .hour-num {
+    color: #1084f1;
+    text-shadow: 0 0 10px rgba(63,252,6,0.678);
+  }
+  .center {
+    background-color: rgb(252,6,231);
+    box-shadow: 2px 2px 10px rgba(6,182,252,0.555), -2px -2px 10px rgba(6,182,252,0.555);
+  }
+  #bar5, #bar10, #bar15, #bar20, #bar25, #bar30 {
+    background-color: rgb(250,50,140);
+  }
+  .hourd {
+    background-color: rgb(0,180,150);
+    box-shadow: 0 0 10px rgba(53,175,90,0.801);
+  }
+  .minute {
+    background-color: rgb(144,85,240);
+    box-shadow: 0 0 7px rgba(248,21,229,0.774);
+  }
+  .bars{
+    background-color: rgb(251,255,200);
+  }
+  .second {
+    background-color: rgb(30,255,0);
+    box-shadow: 0 0 4px rgba(0,89,255,0.753);
+  }
+}
+
